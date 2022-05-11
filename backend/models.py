@@ -18,3 +18,10 @@ class ProductCategories(models.Model):
         verbose_name_plural = 'Product Categories'
     
     name = models.CharField(max_length=20)
+
+class ClotheTypeCategory(models.Model):
+    class Meta:
+        verbose_name = 'Clothe type category'
+        verbose_name_plural = 'Clothe type categories'
+
+    name = models.CharField(max_length=20)
