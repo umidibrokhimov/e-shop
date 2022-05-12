@@ -1,5 +1,15 @@
 from django.db import models
 
+class Products(models.Model):
+    class Meta:
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
+    
+    name = models.CharField(max_length=30)
+    description = models.TextField()
+    image = models.ImageField()
+    price = models.DecimalField(max_digits=8, decimal_places=2)
+
 class NavSlide(models.Model):
     class Meta:
         verbose_name = 'Navbar slide'
