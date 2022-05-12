@@ -24,7 +24,7 @@ class Shop(ListView):
     context_object_name = 'clotheType'
     queryset = ClotheTypeCategory.objects.all()
 
-class ProductDetail(TemplateView):
+class ProductDetail(ListView):
     template_name = 'detail.html'
     context_object_name = 'clotheType'
     queryset = ClotheTypeCategory.objects.all()
