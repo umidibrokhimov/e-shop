@@ -21,28 +21,10 @@ class Home(ListView):
 
 class Shop(ListView):
     template_name = 'shop.html'
-    context_object_name = 'slides'
-
-    def get_queryset(self):
-        return NavSlide.objects.all()
-
-    def get_context_data(self, **kwargs):
-        context = super(Shop, self).get_context_data(**kwargs)
-        # here we can add so many context using that way
-        context['slides'] = NavSlide.objects.all()
-        context['clotheType'] = ClotheTypeCategory.objects.all()
-        return context
+    context_object_name = 'clotheType'
+    queryset = ClotheTypeCategory.objects.all()
 
 class ProductDetail(TemplateView):
     template_name = 'detail.html'
-    context_object_name = 'slides'
-
-    def get_queryset(self):
-        return NavSlide.objects.all()
-
-    def get_context_data(self, **kwargs):
-        context = super(ProductDetail, self).get_context_data(**kwargs)
-        # here we can add so many context using that way
-        context['slides'] = NavSlide.objects.all()
-        context['clotheType'] = ClotheTypeCategory.objects.all()
-        return context
+    context_object_name = 'clotheType'
+    queryset = ClotheTypeCategory.objects.all()
