@@ -119,3 +119,5 @@ AUTH_USER_MODEL = 'backend.User'
 
 MEDIA_ROOT = BASE_DIR / 'static/images'
 MEDIA_URL = 'static/images/'
+
+LOGIN_REDIRECT_URL = '/'
