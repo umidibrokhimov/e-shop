@@ -121,3 +121,5 @@ MEDIA_ROOT = BASE_DIR / 'static/images'
 MEDIA_URL = 'static/images/'
 
 LOGIN_REDIRECT_URL = '/'
+
+LOGOUT_REDIRECT_URL = '/'
