@@ -1,5 +1,5 @@
 from .models import *
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 
 
 class Home(ListView):
@@ -22,10 +22,10 @@ class Shop(ListView):
     queryset = ClotheTypeCategory.objects.all()
     context_object_name = 'clotheType'
 
-class ProductDetail(ListView):
+class ProductDetail(DetailView):
     template_name = 'detail.html'
-    context_object_name = 'clotheType'
-    queryset = ClotheTypeCategory.objects.all()
+    queryset = Products.objects.all()
+    context_object_name = 'product'
 
 class Contact(ListView):
     template_name = 'contact.html'
