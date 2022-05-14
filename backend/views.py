@@ -26,3 +26,8 @@ class ProductDetail(ListView):
     template_name = 'detail.html'
     context_object_name = 'clotheType'
     queryset = ClotheTypeCategory.objects.all()
+
+class Contact(ListView):
+    template_name = 'contact.html'
+    context_object_name = 'clotheType'
+    queryset = ClotheTypeCategory.objects.all()
