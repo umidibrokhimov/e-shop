@@ -16,13 +16,11 @@ class Home(ListView):
         context['clotheType'] = ClotheTypeCategory.objects.all()
         return context
 
-# class Home(TemplateView):
-#     template_name = 'index.html'
 
 class Shop(ListView):
     template_name = 'shop.html'
-    context_object_name = 'clotheType'
     queryset = ClotheTypeCategory.objects.all()
+    context_object_name = 'clotheType'
 
 class ProductDetail(ListView):
     template_name = 'detail.html'
