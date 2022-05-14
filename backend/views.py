@@ -50,3 +50,6 @@ class Contact(ListView):
     template_name = 'contact.html'
     context_object_name = 'clotheType'
     queryset = ClotheTypeCategory.objects.all()
+
+class ShoppingCart(TemplateView):
+    template_name = 'cart.html'
