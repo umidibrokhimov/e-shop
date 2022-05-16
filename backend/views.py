@@ -1,6 +1,14 @@
+from django.shortcuts import reverse
 from .models import *
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from .forms import *
 
+class SignUpView(CreateView):
+    template_name = 'registration/signup.html'
+    form_class = UserModelForm
+
+    def get_success_url(self):
+        return reverse('e-shop:home')
 
 class Home(ListView):
     template_name = 'index.html'
