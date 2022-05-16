@@ -13,6 +13,11 @@ class Products(models.Model):
     description = models.TextField()
     image = models.ImageField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
+    is_trandy = models.BooleanField(default=False)
+    is_arrived = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
 
 class NavSlide(models.Model):
     class Meta:
@@ -32,6 +37,18 @@ class ProductCategories(models.Model):
         verbose_name_plural = 'Product Categories'
     
     name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
+
+
+class ProductColor(models.Model):
+    name = models.CharField(max_length=20)
+    def __str__(self):
+        return self.name
+
+class ProductSize(models.Model):
+    name = models.CharField(max_length=10)
 
     def __str__(self):
         return self.name
