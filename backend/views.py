@@ -34,6 +34,11 @@ def profile(request):
         'profile_form': profile_form
     })
 
+# class UserProfileDetail(DetailView):
+#     template_name = 'user-profile.html'
+#     context_object_name = 'user'
+#     queryset = Profile.objects.all()
+
 class Home(ListView):
     template_name = 'index.html'
     context_object_name = 'slides'
