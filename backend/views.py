@@ -1,14 +1,38 @@
-from django.shortcuts import reverse
+from django.contrib import messages
+from django.shortcuts import reverse, redirect, render
 from .models import *
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, TemplateView
 from .forms import *
+from django.contrib.auth.decorators import login_required
 
 class SignUpView(CreateView):
     template_name = 'registration/signup.html'
-    form_class = UserModelForm
+    form_class = RegisterForm
 
     def get_success_url(self):
         return reverse('e-shop:login')
+
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+        profile_form = UpdateProfileForm(request.POST,
+                                         request.FILES,
+                                         instance=request.user.profile)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile is updated successfully')
+            return redirect(to='users-profile')
+    else:
+        user_form = UpdateUserForm(instance=request.user)
+        profile_form = UpdateProfileForm(instance=request.user.profile)
+
+    return render(request, 'user-profile.html', {
+        'user_form': user_form,
+        'profile_form': profile_form
+    })
 
 class Home(ListView):
     template_name = 'index.html'
@@ -63,3 +87,6 @@ class ShoppingCart(ListView):
     template_name = 'cart.html'
     context_object_name = 'clotheType'
     queryset = ClotheTypeCategory.objects.all()
+
+class Checkout(TemplateView):
+    template_name = 'user-profile.html'

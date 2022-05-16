@@ -108,7 +108,7 @@
                         <a href="{% url 'e-shop:registraion' %}" class="nav-item nav-link">Register</a>
                         {% endif %}
                         {% if request.user.is_authenticated  %}
-                        <a href="{% url 'e-shop:logout' %}" class="nav-item nav-link">{{ request.user.username }}</a>
+                        <a href="{% url 'e-shop:user-profile' %}" class="nav-item nav-link">{{ request.user.username }}</a>
                         <a href="{% url 'e-shop:logout' %}" class="nav-item nav-link">Log out</a>
                         {% endif %}
                     </div>
