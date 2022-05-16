@@ -1,6 +1,6 @@
 from django.shortcuts import reverse
 from .models import *
-from django.views.generic import TemplateView, ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView
 from .forms import *
 
 class SignUpView(CreateView):
@@ -8,7 +8,7 @@ class SignUpView(CreateView):
     form_class = UserModelForm
 
     def get_success_url(self):
-        return reverse('e-shop:home')
+        return reverse('e-shop:login')
 
 class Home(ListView):
     template_name = 'index.html'
