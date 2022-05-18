@@ -34,11 +34,6 @@ def profile(request):
         'profile_form': profile_form
     })
 
-# class UserProfileDetail(DetailView):
-#     template_name = 'user-profile.html'
-#     context_object_name = 'user'
-#     queryset = Profile.objects.all()
-
 class Home(ListView):
     template_name = 'index.html'
     context_object_name = 'slides'
@@ -66,6 +61,7 @@ class Shop(ListView):
         # here we can add so many context using that way
         context['clotheType'] = ClotheTypeCategory.objects.all()
         context['products'] = Products.objects.all()
+        context['productcolors'] = ProductColor.objects.all()
         return context
 
 class ProductDetail(DetailView):
