@@ -62,6 +62,7 @@ class Shop(ListView):
         context['clotheType'] = ClotheTypeCategory.objects.all()
         context['products'] = Products.objects.all()
         context['productcolors'] = ProductColor.objects.all()
+        context['productsize'] = ProductSize.objects.all()
         return context
 
 class ProductDetail(DetailView):
