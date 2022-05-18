@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 <div class="container-fluid bg-secondary">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
@@ -12,12 +14,12 @@
     </div>
 </div>
 
-<div class="container-fluid bg-secondary">
+<div class="container-fluid bg-secondary mb-3">
     <div class="d-flex flex-column align-items-center justify-content-center text-center" style="min-height: 300px">
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}
-            <button>Register</button>
+            {{ form|crispy  }}
+            <button type="submit" class="btn btn-outline-danger rounded mb-5">Danger</button>
         </form>
     </div>
 </div>

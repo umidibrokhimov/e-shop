@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     "crispy_tailwind",
+    "crispy_bootstrap5",
     'backend'
 ]
 
@@ -128,6 +129,6 @@ LOGOUT_REDIRECT_URL = '/'
 
 CRISPY_TEMPLATE_PACK = 'uni_form'
 
-CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
-CRISPY_TEMPLATE_PACK = "tailwind"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
