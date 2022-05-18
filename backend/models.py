@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
-    pass
+    phone_number = models.IntegerField()
 
 # Extending User Model Using a One-To-One Link
 class Profile(models.Model):
